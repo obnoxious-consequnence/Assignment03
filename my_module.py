@@ -27,19 +27,14 @@ def no_english_non_english():
     
     return no_english, no_non_english
 
-def filtered_data(dataset, mask):
-    return dataset[mask]
+def filtered_data(data, mask):
+    return data[mask]
 
-def get_data_by_x(dataset, x_value):
-    data_dict = {n:dataset[dataset[:,x_value] == n][:,4].sum() for n in dataset[:,x_value]}
+def get_data_by_x(data, x_value):
+    # sum data for same xkey
+    data_dict = {n:data[data[:,x_value] == n][:,-1].sum() for n in data[:,x_value]}
     
-    keys = []
-    acc_sums = []
-    acc_sum = 0
+    sorted_data = sorted(list(data_dict.items()),key=lambda x:x[0])
+    data2d = np.array(sorted_data)
     
-    for k,v in sorted(data_dict.items(),key=lambda x:x[0]):
-        acc_sum += v
-        keys.append(k)
-        acc_sums.append(acc_sum)
-    
-    return np.array(keys[:]+acc_sums[:]).reshape(2,len(keys))
+    return data2d
