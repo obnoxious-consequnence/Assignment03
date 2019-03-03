@@ -1,5 +1,6 @@
 # Assignment 3 - NumPy
-this assignment is about slicing and plotting.
+this assignment is about slicing and plotting.  
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/obnoxious-consequnence/Assignment03/master)
 
 ## Create jupyter notebook with 4 data illustrations
 
