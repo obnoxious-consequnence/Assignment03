@@ -1,16 +1,15 @@
 import numpy as np
-
 from data import country_codes, neighb
 
 native_english_speaking = [5142, 5309, 5502, 5303, 5305, 5526, 5314, 5326, 5339, 5308, 
                            5352, 5514, 5625, 5347, 5311, 5374, 5170, 5390]
-# part 2
+# Part 02
 def read_csv_file():
     filename = './befkbhalderstatkode.csv'
     dd = np.genfromtxt(filename, delimiter=',', dtype=np.uint, skip_header=1)
     return dd
 
-# part 3
+# Part 03
 def no_english_non_english():
     dd = read_csv_file()
     
@@ -22,11 +21,11 @@ def no_english_non_english():
     no_non_english = total - no_english
     
     return no_english, no_non_english
-# part 4
+# Part 04
 def filtered_data(data, mask):
     return data[mask]
 
-# part 5
+# Part 05
 def get_data_by_x(data, x_value):
     # sum data for same xkey
     data_dict = {n:data[data[:,x_value] == n][:,-1].sum() for n in list(set(data[:,x_value]))}
